@@ -1,0 +1,17 @@
+.img-responsive{
+    width:100%;
+}
+.navbar{
+    margin-bottom: 30px;
+}
+
+.card{
+    margin-top: 30px;;
+}
+#des{
+    margin-left: 9px;
+}
+
+#delete-form{
+    display:inline;
+}
