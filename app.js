@@ -27,7 +27,8 @@ app.use(methodOverride("_method"))
 app.use(flash());
 // seedDB();
 
-mongoose.connect('mongodb://localhost:27017/yelp_camp',{ useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost:27017/yelp_camp',{ useNewUrlParser: true });
+mongoose.connect("mongodb+srv://Ashirwad:ashirwad@cluster0-2yram.mongodb.net/test?retryWrites=true&w=majority");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
 app.set("view engine","ejs");
