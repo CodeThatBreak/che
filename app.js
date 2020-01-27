@@ -28,7 +28,7 @@ app.use(flash());
 // seedDB();
 
 // mongoose.connect('mongodb://localhost:27017/yelp_camp',{ useNewUrlParser: true });
-mongoose.connect("mongodb+srv://Ashirwad:ashirwad@cluster0-2yram.mongodb.net/test?retryWrites=true&w=majority",{ useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority",{ useUnifiedTopology: true });
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
 app.set("view engine","ejs");
@@ -56,6 +56,9 @@ app.use("/",indexRoutes);
 app.use("/campground",campgroundRoutes);
 app.use("/campground/:id/comments",commentRoutes);
 
-app.listen(3000,function(){
-    console.log("Hey your server is on the go");
-})
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
+
+app.listen(port, host, function() {
+    console.log("Server started.......");
+  });
