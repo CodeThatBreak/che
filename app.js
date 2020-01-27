@@ -28,6 +28,7 @@ app.use(flash());
 // seedDB();
 
 // mongoose.connect('mongodb://localhost:27017/yelp_camp',{ useNewUrlParser: true });
+
 mongoose.connect("mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority",{ useUnifiedTopology: true });
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
