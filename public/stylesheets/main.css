@@ -2,11 +2,14 @@
     width:100%;
 }
 .navbar{
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .card{
-    margin-top: 30px;;
+    margin-top: 30px;
+}
+.img-thumbnail{
+    margin-bottom: 30px;
 }
 #des{
     margin-left: 9px;

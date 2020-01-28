@@ -29,7 +29,18 @@ app.use(flash());
 
 // mongoose.connect('mongodb://localhost:27017/yelp_camp',{ useNewUrlParser: true });
 
-mongoose.connect("mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority",{ useUnifiedTopology: true });
+// mongoose.connect("mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true});
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
 app.set("view engine","ejs");
@@ -57,9 +68,10 @@ app.use("/",indexRoutes);
 app.use("/campground",campgroundRoutes);
 app.use("/campground/:id/comments",commentRoutes);
 
-const host = '0.0.0.0';
-const port = process.env.PORT || 3000;
 
-app.listen(port, host, function() {
-    console.log("Server started.......");
-  });
+app.listen(process.env.PORT);
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
