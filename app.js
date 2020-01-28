@@ -32,14 +32,7 @@ app.use(flash());
 // mongoose.connect("mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true});
 
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+mongoose.connect("mongodb+srv://amarsingh200021:amarsingh200021@devment-4htbk.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
